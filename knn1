@@ -1,0 +1,15 @@
+from sklearn import neighbors
+#datesets是常用的数据集
+from sklearn import datasets
+#数据分类
+knn = neighbors.KNeighborsClassifier()
+#存放到数据集iris
+iris = datasets.load_iris()
+print (iris)
+#开始建立模型
+knn.fit(iris.data, iris.target)
+#传入向量 每一行对应的向量
+#第二部分每一个实例对应的对象
+predictedLabel = knn.predict([[0.1,0.2,0.3,0.4]])
+print(predictedLabel)
+#knn可以手动设置不同的参数
