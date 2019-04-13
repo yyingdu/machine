@@ -1,0 +1,99 @@
+'''
+Created on 2019年4月1日
+
+@author: 杜莹
+'''
+'''
+Created on 2019年4月1日
+
+@author: 杜莹
+'''
+from numpy import genfromtxt  #转变成能使用numpy的格式
+import numpy as np
+from sklearn import datasets,linear_model  #导入数据集以及使用回归分析函数
+
+#dataPath ="C:\Users\ying\eclipse-workspace\Dekivery.csv"
+deliveryData = genfromtxt("Delivery_Dummy.csv",delimiter= ",")
+
+print("data")
+print(deliveryData)
+
+'''
+把数据拆分成两部分
+'''
+X = deliveryData[:,-1]
+Y = deliveryData[:,-1]
+
+print("X:")
+print(X)
+print("Y:")
+print(Y)
+ 
+'''
+调用函数
+建立回归模型
+'''
+regr = linear_model.LinearRegression()
+
+'''
+某种模型.fit一般是调用数据建模
+'''
+regr.fit(X, Y)
+
+print("coefficients")
+print(regr.coef_) #存放参数bo b1..bp的值
+print("intercept")
+print(regr.intercept_)  #存放截距值
+'''
+xPredict = [[102,6]]
+yPredict = regr.predict(xPredict)
+print("predicted y:")
+print(yPredict)
+'''
+
+'''
+Created on 2019年4月1日
+
+@author: 杜莹
+'''
+from numpy import genfromtxt  #转变成能使用numpy的格式
+import numpy as np
+from sklearn import datasets,linear_model  #导入数据集以及使用回归分析函数
+
+#dataPath ="C:\Users\ying\eclipse-workspace\Dekivery.csv"
+deliveryData = genfromtxt("Delivery.csv",delimiter= ",")
+
+print("data")
+print(deliveryData)
+
+'''
+把数据拆分成两部分
+'''
+X = deliveryData[:,:-1]
+Y = deliveryData[:,-1]
+
+print("X:")
+print(X)
+print("Y:")
+print(Y)
+
+'''
+调用函数
+建立回归模型
+'''
+regr = linear_model.LinearRegression()
+
+'''
+某种模型.fit一般是调用数据建模
+'''
+regr.fit(X, Y)
+
+print("coefficients")
+print(regr.coef_) #存放参数bo b1..bp的值
+print("intercept")
+print(regr.intercept_)  #存放截距值
+
+xPredict = [[102,6]]
+yPredict = regr.predict(xPredict)
+print("predicted y:")
+print(yPredict)
